@@ -1,6 +1,9 @@
 # MIPS-16-Physical-Design
 This abstract presents the physical design implementation of a MIPS-16 processor with PDK 45nm nangate, focusing on achieving optimal performance in terms of operating frequency and silicon area.
 
+<img width="523" height="355" alt="new5" src="https://github.com/user-attachments/assets/e1964f60-951f-4f97-bd97-e36aebabbec2" />
+
+
 The methodology commenced with the definition of Synopsys Design Constraints (SDC), including an initial clock period of 4ns (250 MHz), with input/output delays set at 30% of the clock period and a clock uncertainty of 0.35ns. Iterative synthesis trials were conducted to optimize timing. The initial trial at 4ns yielded a slack of 2.08. Subsequent trials progressively reduced the clock period to 2ns (slack 0.85) and finally to 1ns, achieving a worst-case slack of -0.01, indicating maximum optimization at the synthesis stage. This optimized clock period of 1ns (1GHz) was carried forward into the Place and Route (PnR) flow.
 
 The PnR phase incorporated stringent hard constraints, including the placement of pins on metal4 and metal5 layers, with inputs designated for the top and left sides, and outputs for the right and bottom sides. A T-shaped floorplan was adopted, maintaining an IR drop within 2% and a core utilization of 0.8. Detailed power planning involved the definition of power rings and a power mesh. The PnR flow encompassed floorplanning, powerplanning, placement (including the strategic creation of routing blockages in metal2 to mitigate Design Rule Check (DRC) violations), Clock Tree Synthesis (CTS), and final routing and chip finishing.
